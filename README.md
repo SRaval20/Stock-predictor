@@ -4,9 +4,8 @@
 
 - Download this repository
 - Open terminal in your system (Here, I am using MacOS)
-- Type `pip install Flask` to install falsk in your system
-- Open "src" folder you have downloaded
-- Go into this folder in terminal
+- Type `pip install Flask` to install flask in your system
+- Go into current folder in terminal
 - Type command `export FLASK_APP=stock-calculator.py`
 - Type command `flask run`
 - Open web browser and paste http://127.0.0.1:5000/ in new tab
