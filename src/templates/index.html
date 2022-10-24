@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <style>
+            body {
+              background-color: #522d11;
+            }
+            h2 {
+              color: #584438;
+              margin: 0 0 30px 0;
+              text-align: center;
+            }
+            h3 {
+              color: #ffffff;
+              margin: 0 0 30px 0;
+              text-align: center;
+            }
+            form {
+              max-width: 400px;
+              margin: 10px auto;
+              padding: 10px 20px;
+              background: #f4f7f8;
+              border-radius: 8px;
+            }
+            body {
+              font-family: "Times New Roman", Times, serif;
+              color: #584438;
+            }
+            input[type="text"],
+            input[type="password"],
+            input[type="date"],
+            input[type="datetime"],
+            input[type="email"],
+            input[type="number"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="time"],
+            input[type="url"],
+            textarea,
+            select {
+              background: rgba(255, 255, 255, 0.1);
+              border: none;
+              font-size: 16px;
+              height: auto;
+              margin: 0;
+              outline: 0;
+              padding: 15px;
+              width: 100%;
+              background-color: #e8eeef;
+              color: #8a97a0;
+              box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+              margin-bottom: 30px;
+            }
+
+            input[type="submit"],select {
+              padding: 19px 39px 18px 39px;
+              color: #FFF;
+              background-color: #4bc970;
+              font-size: 18px;
+              text-align: center;
+              font-style: normal;
+              border-radius: 5px;
+              width: 100%;
+              border: 1px solid #3ac162;
+              border-width: 1px 1px 3px;
+              box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+              margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <form action="/" method="POST">
+            <br>
+            <h2>Stock-calculator</h2>
+            Please enter company's stock name (Ticker symbol): 
+            <input name="ticker_symbol" type="text" />
+            <br>
+            <br>
+            <input type="Submit" value="Calculate" />
+        </form> 
+        <br>
+        <h3>Stock Calculation</h3>
+        <form>
+            {% if request.method == "POST" and error == "" %}
+            <b>Current time:</b> {{current_time}} PDT<br>
+            <b>Company name:</b> {{company_name}}<br>
+            <b>Valuation per share: </b> {{todays_price}}<br>
+            <b>Value change:</b> {{value_change}}<br>
+            <b>Percentage change:</b> {{percentage_change}}<br>
+            {% endif %}
+
+            {% if request.method == "POST" and error != "" %}
+            <b style = "color:red" > OOPS!!! {{error}} </b>
+            {% endif %}
+        </form>
+    </body>
+</html>
